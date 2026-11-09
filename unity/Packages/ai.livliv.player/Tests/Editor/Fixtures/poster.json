@@ -1,0 +1,378 @@
+{
+  "sourceHashes": {
+    "src/base.ts": "4118ec1d657570ac456e54338bc5c18084543e9bd2fc2bf562c1ae9b5ebfc160"
+  },
+  "scenarios": [
+    {
+      "name": "first frame",
+      "steps": [
+        [
+          "start",
+          "a",
+          "cover.webp"
+        ],
+        [
+          "resolve",
+          "a"
+        ],
+        [
+          "draw"
+        ],
+        [
+          "dispose"
+        ]
+      ],
+      "expected": [
+        {
+          "poster": "cover.webp",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "cover.webp",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 1
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 1
+        }
+      ]
+    },
+    {
+      "name": "failure restores background",
+      "steps": [
+        [
+          "start",
+          "a",
+          "a.png"
+        ],
+        [
+          "reject",
+          "a"
+        ]
+      ],
+      "expected": [
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 0
+        }
+      ]
+    },
+    {
+      "name": "newer poster survives old failure",
+      "steps": [
+        [
+          "start",
+          "a",
+          "a.png"
+        ],
+        [
+          "start",
+          "b",
+          "b.png"
+        ],
+        [
+          "reject",
+          "a"
+        ],
+        [
+          "resolve",
+          "b"
+        ],
+        [
+          "draw"
+        ]
+      ],
+      "expected": [
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "b.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "b.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "b.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 1
+        }
+      ]
+    },
+    {
+      "name": "new load without poster",
+      "steps": [
+        [
+          "start",
+          "a",
+          "a.png"
+        ],
+        [
+          "start",
+          "b",
+          null
+        ],
+        [
+          "reject",
+          "a"
+        ],
+        [
+          "reject",
+          "b"
+        ]
+      ],
+      "expected": [
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 0
+        }
+      ]
+    },
+    {
+      "name": "precancel preserves current",
+      "steps": [
+        [
+          "start",
+          "a",
+          "a.png"
+        ],
+        [
+          "precancel",
+          "b",
+          "b.png"
+        ],
+        [
+          "resolve",
+          "a"
+        ],
+        [
+          "draw"
+        ]
+      ],
+      "expected": [
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 1
+        }
+      ]
+    },
+    {
+      "name": "loaded character stays",
+      "steps": [
+        [
+          "start",
+          "a",
+          "a.png"
+        ],
+        [
+          "resolve",
+          "a"
+        ],
+        [
+          "draw"
+        ],
+        [
+          "start",
+          "b",
+          "b.png"
+        ],
+        [
+          "reject",
+          "b"
+        ]
+      ],
+      "expected": [
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 1
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 1
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 1
+        }
+      ]
+    },
+    {
+      "name": "cancel and dispose",
+      "steps": [
+        [
+          "start",
+          "a",
+          "a.png"
+        ],
+        [
+          "cancel",
+          "a"
+        ],
+        [
+          "reject",
+          "a"
+        ],
+        [
+          "start",
+          "b",
+          "b.png"
+        ],
+        [
+          "dispose"
+        ],
+        [
+          "reject",
+          "b"
+        ]
+      ],
+      "expected": [
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 0
+        },
+        {
+          "poster": "b.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 0
+        }
+      ]
+    },
+    {
+      "name": "old success cannot clear newer poster",
+      "steps": [
+        [
+          "start",
+          "a",
+          "a.png"
+        ],
+        [
+          "start",
+          "b",
+          "b.png"
+        ],
+        [
+          "resolve",
+          "a",
+          false
+        ],
+        [
+          "reject",
+          "b"
+        ]
+      ],
+      "expected": [
+        {
+          "poster": "a.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "b.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": "b.png",
+          "background": "center contain no-repeat",
+          "draws": 0
+        },
+        {
+          "poster": null,
+          "background": "left auto repeat",
+          "draws": 0
+        }
+      ]
+    }
+  ]
+}

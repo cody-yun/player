@@ -1,0 +1,17 @@
+{
+  "name": "ai.livliv.player",
+  "version": "0.1.0",
+  "displayName": "LivLiv Player (Unity port)",
+  "description": "Source-mapped Unity port of livliv-dev/player. In development; see compatibility.json.",
+  "unity": "6000.3",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.androidjni": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.unitywebrequestaudio": "1.0.0",
+    "com.unity.modules.ui": "1.0.0"
+  }
+}

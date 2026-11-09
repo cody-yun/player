@@ -1,0 +1,466 @@
+{
+  "sourceHashes": {
+    "src/release.ts": "7ff2ad2bdf82c8d72c753fae7619de25cc8ac7cdbcda735144a8464f52be1fd1",
+    "src/errors.ts": "f9efb0935372ad64a2fc18484f441656bda66ac81e32216b9a51b179deaec1e8"
+  },
+  "cases": [
+    {
+      "name": "normal",
+      "rows": [
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": "released",
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "cancel",
+      "rows": [
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "reschedule",
+      "rows": [
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": "released",
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "duplicate",
+      "rows": [
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": "released",
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "no-context",
+      "rows": [
+        {
+          "operation": "null:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": "released",
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "no-extension",
+      "rows": [
+        {
+          "operation": "missing:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": "released",
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "independent",
+      "rows": [
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:b",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 1
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 1
+          }
+        },
+        {
+          "operation": "claim:b",
+          "error": "released",
+          "lost": {
+            "a": 0,
+            "b": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "claim-many",
+      "rows": [
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "failure",
+      "rows": [
+        {
+          "operation": "throw:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": "backend-failed",
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": "released",
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "schedule-failure",
+      "rows": [
+        {
+          "operation": "reject",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": "schedule-failed",
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "release:a",
+          "error": null,
+          "lost": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "operation": "flush",
+          "error": null,
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "operation": "claim:a",
+          "error": "released",
+          "lost": {
+            "a": 1,
+            "b": 0
+          }
+        }
+      ]
+    }
+  ]
+}

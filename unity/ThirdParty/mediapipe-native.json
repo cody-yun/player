@@ -1,0 +1,10 @@
+{
+  "package": "com.github.homuler.mediapipe",
+  "version": "0.16.3",
+  "mediapipeVersion": "0.10.22",
+  "source": "https://github.com/homuler/MediaPipeUnityPlugin/releases/tag/v0.16.3",
+  "archive": "com.github.homuler.mediapipe-0.16.3.tgz",
+  "sha256": "cc3e77a219e0b99618ae3be64c31a566197deedc69c1e136acf52d65d7cf2e79",
+  "license": "MIT; bundled MediaPipe Apache-2.0 and upstream Third Party Notices",
+  "restoration": "node scripts/unity/prepare-mediapipe-native.mjs"
+}

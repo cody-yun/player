@@ -1,0 +1,258 @@
+{
+  "upstream": "https://github.com/livliv-dev/player",
+  "fork": "https://github.com/cody-yun/player",
+  "commit": "d999dea88981124168f9e9ab948eda8d2f23c453",
+  "upstreamVersion": "0.3.0",
+  "unity": "6000.3.14f1",
+  "modules": [
+    {
+      "source": "src/base.ts",
+      "sha256": "4118ec1d657570ac456e54338bc5c18084543e9bd2fc2bf562c1ae9b5ebfc160",
+      "target": "Runtime/base.cs",
+      "status": "partial",
+      "coverage": "frame composition, stable driver ordering/removal/disposal, controls, actions/expressions, host-driven Tick/visibility; 460 original frames. Async load jobs, replacement/cancellation/disposal, monotonic progress/build-once and callback reentrancy ported. Snapshot draw(0) to PNG data URL/bytes, straight alpha conversion and caller target ownership: 4 Unity GPU tests and 4 actual Chrome WASM poses. Poster start/replace/precancel/failure/first-frame/dispose lifecycle: 8 original CSS scenarios; optional UGUI PNG/WebP presenter with cancellation/ownership, PlayMode and actual Chrome WASM validation. Other browser poster image formats and broader platform validation pending. JPEG poster support added through shared Unity decoder with pre-decode dimension budget checks; baseline/progressive RGB and UGUI lifecycle verified in Editor; player/device and EXIF/color-profile validation pending. Confirmed-context-loss host notification, sticky state, once-only callback and reason-preserving load cancellation added; draw and sync/async loads gated. WebGL shared-canvas listener/direct AOT notification implemented; 4 JS registration/lifecycle checks and WASM compile passed; Chrome WASM live Unity-canvas WEBGL_lose_context: 2 live owners notified once, disposed owner skipped, listener detached, fresh page restart verified. Gated HTTP+context loss now aborts browser fetch and completes public load Task/await as context-lost without Unity frames; 9 normal browser HTTP records, .NET 18/Unity 23 regressions passed. Hardware/mobile loss and concurrent capture validation pending Upstream issue #8 declaration fix reviewed; Unity Player.Expressions returns concrete ModelExpression[] retaining label/labels. Runtime fixture outputs unchanged after baseline update; BodyPlayer remains pending.",
+      "adapters": [
+        "Runtime/loading.cs",
+        "Runtime/Platform/Unity/Player.Snapshot.cs",
+        "../ai.livliv.ugui/Runtime/PosterPresenter.cs",
+        "Runtime/Platform/Unity/Player.cs",
+        "Runtime/Platform/Unity/WebGLContextLoss.cs",
+        "Runtime/Plugins/WebGL/LivLivContext.jslib",
+        "Runtime/Platform/Unity/Player.Release.cs"
+      ]
+    },
+    {
+      "source": "src/body.ts",
+      "sha256": "c626152a411be02a946037df360bb1a5042d77fb79a79dcaaec8995419cb525d",
+      "target": "Runtime/body.cs",
+      "status": "pending",
+      "coverage": "not implemented"
+    },
+    {
+      "source": "src/errors.ts",
+      "sha256": "f9efb0935372ad64a2fc18484f441656bda66ac81e32216b9a51b179deaec1e8",
+      "target": "Runtime/errors.cs",
+      "status": "ported",
+      "coverage": "code/status/cause mapped to C# Exception"
+    },
+    {
+      "source": "src/follow.ts",
+      "sha256": "b112b14237ef44407a524e528e430ae0c4a49aab2d1f3b789ae8269b6e98b366",
+      "target": "Runtime/follow.cs",
+      "status": "ported",
+      "coverage": "Idle wrapper, pointer/held look/leave/blink, tracked face/voice gates; seeded original sequences. Host supplies display coordinates and reduced-motion preference"
+    },
+    {
+      "source": "src/index.ts",
+      "sha256": "6c52b3c9690ce5b2329a7a0b77d0bace320b5ec38e508d09f31da9b6ab53cc5f",
+      "target": "Runtime/Platform/Unity/Player.cs",
+      "status": "partial",
+      "coverage": "PlayerBase to Unity renderer, ModelPackage/ZIP/files and HTTP(S) async load, model info, view/poke/coordinates, paused redraw and ownership. ZIP retry, cancellation, progress, transactional replacement; real Unity HTTP/GPU tests. Optional UGUI PlayerSurface owns Player/target/material, pumps frames and applies automatic size/density policy with explicit pixel budget. 96 original sizing cases, Unity lifecycle/GPU tests and actual Chrome WASM resize/budget/recovery verified. Perspective density corrected to use all four projected edges; failing-before/passing-after Unity camera tests and macOS ARM64/Metal and BlueStacks ARM64/GLES3 IL2CPP camera integration: eight perspective/orthographic/screen/nested states, saved pixels, paused time and fixed sample scale. Other platform/camera scenarios remain pending. Public Player.IsSupported graphics preflight: Null device/shader rejection and transient depth target probe, main-thread only; repeated Metal PlayMode calls preserve caller target and release probe. Codec/input support checked separately File-list archive selection, direct-model precedence, first-ZIP authority and one-level unpacking now match 22 unchanged-upstream fromFiles cases; GLB magic and VRM/GLB filenames produce original not-a-model diagnostics. Existing FromFiles(files,lang) overload retained; cancellation overload feeds ZIP extraction.",
+      "adapters": [
+        "Runtime/Platform/ModelPackage.cs",
+        "Runtime/Platform/StrictJson.cs",
+        "Runtime/Platform/ModelDownload.cs",
+        "Runtime/Platform/Unity/UnityModelTransport.cs",
+        "Runtime/Platform/SurfaceSize.cs",
+        "../ai.livliv.ugui/Runtime/PlayerSurface.cs",
+        "../ai.livliv.ugui/Runtime/Resources/LivLivSurface.shader"
+      ]
+    },
+    {
+      "source": "src/mark.ts",
+      "sha256": "a208e7c3b61ac5d67387216cb44a4ad711df80ed86097fd193e45ace94ae6e5b",
+      "target": "Runtime/mark.cs",
+      "status": "partial",
+      "coverage": "selection/cache and logo/text GPU composition; 35 upstream transitions. Included NanumGothic default or borrowed dynamic Font via IMarkTextRasterizer; preflight missing-glyph validation, literal text, DPR and Snapshot. Unity Editor 129 targeted tests + 11 UGUI regressions and Chrome WASM 8 states verified. macOS ARM64 Metal and BlueStacks ARM64 GLES3 IL2CPP each pass 8 text states with zero retained resources; system-ui font metrics/Canvas AA/shadow are not pixel-exact; complex shaping/RTL/emoji not verified",
+      "adapters": [
+        "Runtime/Platform/Unity/UnityMark.cs",
+        "Runtime/Platform/IMarkTextRasterizer.cs",
+        "Runtime/Platform/Unity/UnityMarkText.cs",
+        "Runtime/Platform/Unity/Resources/LivLivTextCoverage.shader"
+      ]
+    },
+    {
+      "source": "src/png.ts",
+      "sha256": "78040e0e957629c40303c36e1d2b51fe2e8e28d83eb0ca8f0cd571069bcd36e0",
+      "target": "Runtime/png.cs",
+      "status": "pending",
+      "coverage": "not implemented"
+    },
+    {
+      "source": "src/release.ts",
+      "sha256": "7ff2ad2bdf82c8d72c753fae7619de25cc8ac7cdbcda735144a8464f52be1fd1",
+      "target": "Runtime/release.cs",
+      "status": "partial",
+      "coverage": "Deferred release/cancellation, duplicate/terminal/error handling and weak surface identity match 10 upstream task sequences. Unity Player.Dispose(PlayerDisposeOptions) explicitly returns RenderTexture GPU storage, preserves the caller-owned object and rejects spent targets. Claims precede renderer allocation. Existing owners of the same target receive context loss even when paused; retargeted owners are detached. Six PlayMode lifecycle tests passed. Unity shared graphics context is never released per player; broader target validation remains partial.",
+      "adapters": [
+        "Runtime/Platform/Unity/Player.Release.cs",
+        "Runtime/Platform/Unity/Player.cs"
+      ]
+    },
+    {
+      "source": "src/runtime/actions.ts",
+      "sha256": "5c6c03f7494463a9b06dd583f52dd3a55cb9d8daf86e812e27d4907c423e8261",
+      "target": "Runtime/runtime/actions.cs",
+      "status": "ported",
+      "coverage": "numeric parity"
+    },
+    {
+      "source": "src/runtime/brand.ts",
+      "sha256": "7f5576a91cf9521d959fe84cd57368eaaff99918a177b7bde95f8cac954eb12d",
+      "target": "Runtime/runtime/brand.cs",
+      "status": "ported",
+      "coverage": "source paths/layout/blink/ordered Canvas commands; 64 upstream Canvas cases; raster is a separate approximate adapter",
+      "adapters": [
+        "Runtime/Platform/BrandRasterizer.cs"
+      ]
+    },
+    {
+      "source": "src/runtime/filters.ts",
+      "sha256": "6f99113c97942dc73ba80cf453c2a232473bd08f2a9e14499c5ec9030e5e747c",
+      "target": "Runtime/runtime/filters.cs",
+      "status": "ported",
+      "coverage": "numeric parity"
+    },
+    {
+      "source": "src/runtime/format.ts",
+      "sha256": "565614e2377cb6cdd7b60b8207045b422a56272a9847725b97bab4d28dee64ce",
+      "target": "Runtime/runtime/format.cs",
+      "status": "ported",
+      "coverage": "v3/v4 lowering, limits, labels and object identity; 748 upstream model cases. Uncoded malformed JS errors become invalid."
+    },
+    {
+      "source": "src/runtime/idle.ts",
+      "sha256": "2d624491b38fff6bf66b8dd612e96a84f0e7718ccdb15d5cc57cfe91e4d2d0df",
+      "target": "Runtime/runtime/idle.cs",
+      "status": "ported",
+      "coverage": "LivelyIdle noise/springs/breath/moves/attention; 9000 frames across classic/lively/follow scenarios including exact RNG call counts and move definitions"
+    },
+    {
+      "source": "src/runtime/params.ts",
+      "sha256": "d6b16d22c2896fabcc5518754c8eb5d069652b7fccb15dc17e2b713ce056456c",
+      "target": "Runtime/runtime/params.cs",
+      "status": "ported",
+      "coverage": "numeric parity"
+    },
+    {
+      "source": "src/runtime/puppet.ts",
+      "sha256": "1547d5a8522582d1a937a324a165009d26ab44d912b4f4e93739033b530a1775",
+      "target": "Runtime/runtime/puppet.cs",
+      "status": "partial",
+      "coverage": "partial: lattice/weights/skin, update/deform/physics, image sampling/keyforms, animated draw ordering/soft iris, view/focus/pan/zoom/canvasToModel/poke/classic IdleDriver. 21 x 120 numeric frames including view and poke; 3 real models x 4 poses against browser. Cropped mask bounds/2px guard/64px grow-only targets ported; 160 original bounds cases and Metal lifecycle tests, 12 Metal real-model frames unchanged from full-target baseline. Chrome WASM explicit gaze/blink/combined/offscreen probe verified 192x128 storage for 512x768 output. Cropped path also verified in macOS ARM64 Metal and BlueStacks ARM64 GLES3 IL2CPP: 8 pose/resize/reuse/recovery states and zero owned mask targets after disposal. Same-backend Chrome full/cropped mask comparison: 4 frames byte-identical. Physical mobile and remaining platform GPU validation pending; WebGL IL2CPP/WebP build + Aoi 4 static-pose pixel comparisons verified in Chrome 156; macOS ARM64 IL2CPP/Metal generated-face player smoke passed; Android ARM64 APK and unsigned iOS app build/link/artifact audits passed, mobile device GPU checks pending. Unity optimization: per-Deform head/body settings snapshots with unchanged shared arithmetic and live public-call reads; 23 dynamics checks in .NET/Unity, 60 Unity graphics checks, and 21 fixed-clock macOS IL2CPP RGBA frames identical before/after. Performance evidence in docs/unity/PERFORMANCE.md",
+      "adapters": [
+        "Runtime/Platform/Unity/TextureDecoder.cs",
+        "Runtime/Platform/Unity/PuppetRenderer.cs",
+        "Runtime/Platform/Unity/Resources/LivLivLayer.shader",
+        "Runtime/Platform/Unity/WebPDecoder.cs",
+        "Runtime/Platform/AlphaRaster.cs",
+        "Runtime/Platform/Unity/LayerSampling.cs",
+        "Runtime/Platform/Unity/PuppetRenderer.Draw.cs",
+        "Runtime/Platform/Unity/PuppetRenderer.Sampling.cs",
+        "Runtime/Platform/MaskBounds.cs"
+      ]
+    },
+    {
+      "source": "src/runtime/speech.ts",
+      "sha256": "bab98e9b3124ccdb422390ad57fc004a0500f769ea1cc47873eaea7a6c2531a2",
+      "target": "Runtime/runtime/speech.cs",
+      "status": "partial",
+      "coverage": "Envelope/incremental vowel, ordered PCM schedule, heard-time interpolation, hooks, cancellation/watchdog/disposal. 24 original envelope cases + 36 timed reads + 21 original Incoming WAV cases. Native Unity DSP and URL/byte loader: streamed PCM16 WAV, whole WAV/MP3, first channel, 50ms gate and budgets. Real Unity HTTP/decoder tests and native encoded-audio probes; WebGL Web Audio/fetch/decode bridge: 14 Node contracts and 8 recorded Chrome 156 states covering URL/bytes, pre-EOF WAV playback, cancel, errors/restart and disposal. Safari/mobile browsers and physical-device latency pending. onState/Running now use main-thread output notifications with optional ISpeechStateOutput; native Running fallback preserves existing adapters. Final owned-context close is notified synchronously during Dispose (documented timing difference). 3 original state scenarios/16 observations, 73 targeted .NET/Unity EditMode tests, 7 native PlayMode tests and 16 JS bridge tests pass; WebGL IL2CPP build/link passed. Actual Chrome WASM state transitions (9 observations) and existing speech regression (8 records) passed; macOS ARM64 Metal and BlueStacks ARM64 GLES3 IL2CPP verify pause/resume/close [false,true,false], encoded audio and released resources. Latest Speech/State/WAV/Driver .NET and Unity CLI tests: 81 each. See SPEECH-STATE.md",
+      "adapters": [
+        "Runtime/Platform/Audio/SpeechContracts.cs",
+        "Runtime/Platform/Unity/UnitySpeechOutput.cs",
+        "Runtime/Platform/Unity/UnitySpeechPump.cs",
+        "Runtime/Platform/Audio/SpeechWavReader.cs",
+        "Runtime/Platform/Audio/SpeechIncomingBuffer.cs",
+        "Runtime/Platform/Unity/UnitySpeechLoader.cs",
+        "Runtime/Platform/Unity/WebGLSpeech.cs",
+        "Runtime/Plugins/WebGL/LivLivSpeech.jslib"
+      ]
+    },
+    {
+      "source": "src/runtime/talk.ts",
+      "sha256": "2b2e1afe249631e1613b011581de8a9aad9daacf100b253d596da8be4aacbcaf",
+      "target": "Runtime/runtime/talk.cs",
+      "status": "ported",
+      "coverage": "TalkMotion onsets, springs, phrase drift, brows, pause blink, hop/reset; 5400 seeded original frames with exact RNG call counts"
+    },
+    {
+      "source": "src/runtime/trace.ts",
+      "sha256": "90da553d27a6e707745e0d89f4a9442e1967c0e03275d329d50f8f5ba75a6758",
+      "target": "Runtime/runtime/trace.cs",
+      "status": "ported",
+      "coverage": "Frame/BS/LM, source-faithful timed replay, recorder normalization/4-digit JSON/9000-frame cap, 24s normal/narrow synthesis and SynthStats metrics. 1440 original synthetic frames, recording/replay/stats fixtures and two complete tracker/record/stats pipelines. DOM save becomes returned JSON; window stats become per-instance At/Latest. IFaceInput replay/record adapters and bounded external JSON/transport loading; runtime evidence in TRACES.md. Actual Chrome WASM, macOS ARM64 and BlueStacks ARM64 IL2CPP agree with original stats and every exported JSON value for 2x1441 frames; iOS unsigned build/link passed, no device execution claim.",
+      "adapters": [
+        "Runtime/Platform/TraceInput.cs"
+      ]
+    },
+    {
+      "source": "src/runtime/tracking.ts",
+      "sha256": "ea14b6693517ea1f5fae8becabe0127f3af6578351ddb91c841994927117caef",
+      "target": "Runtime/runtime/tracking.cs",
+      "status": "partial",
+      "coverage": "read/apply/calibration/mirror/smoothing/lost clock; browser loader, poll/toFrame/FPS/dark with 720 original poll steps. Pinned Tasks Vision 1.1.1 GPU inference reaches WASM/C# in Chrome generated-video test. Native CPU adapter and WebCamTexture capture implemented in optional ai.livliv.mediapipe; actual macOS ARM64 Editor photo inference/loss verified. macOS ARM64 IL2CPP generated-video tracking/render verified; Android APK/iOS unsigned app build/link verified. Native hardware/remaining platform builds, diagnostics pending Calibration save/restore now preserves source key/JSON, mirror normalization, finite checks and legacy position migration through ICalibrationStore; 50 original scenarios, 80 targeted Unity tests and Chrome WASM reload verified. macOS ARM64 and BlueStacks ARM64 IL2CPP persistence verified across separate process launches (5 states each); iOS unsigned build/link audited, physical devices and other PCs still pending.",
+      "adapters": [
+        "Browser~/face-input.mjs",
+        "Runtime/Plugins/WebGL/LivLivFace.jslib",
+        "Runtime/Platform/Unity/WebGLFaceInput.cs",
+        "Editor/BrowserAssets.cs",
+        "../ai.livliv.mediapipe/Runtime/NativeFaceInput.cs",
+        "../ai.livliv.mediapipe/Runtime/WebCamFaceSource.cs",
+        "Runtime/Platform/ICalibrationStore.cs",
+        "Runtime/Platform/Unity/UnityCalibrationStore.cs",
+        "Runtime/Plugins/WebGL/LivLivCalibration.jslib",
+        "Runtime/Platform/ICaptureStatus.cs"
+      ]
+    },
+    {
+      "source": "src/runtime/voice.ts",
+      "sha256": "8e34a6180d255e5157b42998418fe2c3e69878aa67fb17f9e860a8e96d00a5a6",
+      "target": "Runtime/runtime/voice.cs",
+      "status": "partial",
+      "coverage": "VoiceMeter/readAt clock; portable PCM bandpass/Blackman FFT matches real WebAudio at 16/44.1/48/96 kHz. Native circular capture + WebGL WebAudio/WASM bridge; actual browser generated-audio lifecycle verified, physical mic permissions/devices still pending",
+      "adapters": [
+        "Runtime/Platform/Audio/PcmVoiceInput.cs",
+        "Runtime/Platform/Unity/MicrophoneInput.cs",
+        "Runtime/Platform/Unity/WebGLVoiceInput.cs",
+        "Runtime/Plugins/WebGL/LivLivBrowser.jslib",
+        "Runtime/Platform/ICaptureStatus.cs"
+      ]
+    },
+    {
+      "source": "src/runtime/vowel.ts",
+      "sha256": "0a33815366f8e2475031dd563b2869f039534112e113c67e7f8a5dd0c780a753",
+      "target": "Runtime/runtime/vowel.cs",
+      "status": "ported",
+      "coverage": "numeric parity"
+    },
+    {
+      "source": "src/tracking.ts",
+      "sha256": "77585afe481626420e5723db33780106a063d0cfb550861379851ab04fb870c3",
+      "target": "Runtime/tracking.cs",
+      "status": "partial",
+      "coverage": "FaceTracking driver/controls: order -10, tracked flag, lost/reacquired easing, follow movement, mirror/calibrate/stop; 6400 combined original frames. WebGL StartAsync/preload/progress/cancellation wired via IFaceInput; generated-video inference/restart/denial/late cancel verified. Native IFaceInput CPU adapter added; physical devices, native target builds, diagnostics pending remember and borrowed calibrationStore are wired before first poll; source calculation assembly stays engine-independent. Replay IFaceInputMode suppresses persistent calibration, including recording-wrapped replay; camera paths unchanged."
+    },
+    {
+      "source": "src/voice.ts",
+      "sha256": "ed9cf4efb795f25e00d6375f8d3e7f51b5531372abf0bc7bee93f523f9b4bf70",
+      "target": "Runtime/voice.cs",
+      "status": "partial",
+      "coverage": "MouthDriver/LipSync parity; 6400 combined original frames. Speech Attach/Say URL and bytes/Stop/Unlock/Busy/onIdle/Dispose with native/WebGL default URL/byte decoders and independent pump. Actual Chrome WebGL output/streaming/cancel/restart/disposal verified; remaining platform/device validation pending"
+    },
+    {
+      "source": "src/vrm.ts",
+      "sha256": "113168d10f9f7cf5b05fd98b7a450a972944baad88410232cbb6c7ab8d3f9ae5",
+      "target": "Runtime/vrm.cs",
+      "status": "pending",
+      "coverage": "not implemented"
+    },
+    {
+      "source": "src/zip.ts",
+      "sha256": "12c5784a51c32b40c525df8716875a298522f54d10fe3897a47ac923680e4478",
+      "target": "Runtime/zip.cs",
+      "status": "ported",
+      "coverage": "central-directory reader, stored/deflate, bounds/budgets/path rules; 21 upstream ZIP cases. .NET always supports deflate."
+    }
+  ]
+}

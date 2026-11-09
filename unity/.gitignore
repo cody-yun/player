@@ -1,0 +1,19 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+TestResults/
+*.csproj
+*.sln
+*.slnx
+.vs/
+
+# Rebuilt from the upstream character folder by VerificationBuild.
+Assets/Verification/Resources/LivLivVerification.bytes*
+
+# Restored with scripts/unity/prepare-mediapipe-native.mjs (pinned SHA-256).
+ThirdParty/*.tgz
+
+Assets/Verification/Resources/LivLivFaceModel.bytes*
+Assets/Verification/Resources/LivLivPortrait.bytes*

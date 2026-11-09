@@ -1,0 +1,8 @@
+{
+  "project": "Skia",
+  "commit": "a6c6ea6d7f1fecf5bd71d622744c0918cc6789c1",
+  "license": "BSD-3-Clause",
+  "source": "https://raw.githubusercontent.com/google/skia/a6c6ea6d7f1fecf5bd71d622744c0918cc6789c1/src/opts/SkRasterPipeline_opts.h",
+  "adaptation": "Alpha-only Q15 bilinear interpolation in Platform/AlphaRaster.cs; no native Skia library bundled",
+  "licenseSha256": "5f787c1dee3c56547f09ccc2906ab5f5293c4d8dd6c8654e573216c38e908dbd"
+}

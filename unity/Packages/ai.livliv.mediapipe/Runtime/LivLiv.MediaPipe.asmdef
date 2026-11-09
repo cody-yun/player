@@ -1,0 +1,7 @@
+{
+  "name": "LivLiv.MediaPipe",
+  "references": ["LivLiv.Runtime", "LivLiv.Unity", "Mediapipe.Runtime"],
+  "includePlatforms": ["Editor", "macOSStandalone", "WindowsStandalone64", "LinuxStandalone64", "Android", "iOS"],
+  "overrideReferences": true,
+  "precompiledReferences": ["Google.Protobuf.dll"]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "LivLiv.Unity",
+  "rootNamespace": "LivLiv.Unity",
+  "references": ["LivLiv.Runtime"],
+  "overrideReferences": true,
+  "precompiledReferences": ["Newtonsoft.Json.dll"]
+}

@@ -1,0 +1,967 @@
+{
+  "sourceHashes": {
+    "src/runtime/puppet.ts": "1547d5a8522582d1a937a324a165009d26ab44d912b4f4e93739033b530a1775"
+  },
+  "cases": [
+    {
+      "width": 0,
+      "height": 0,
+      "density": 0,
+      "cap": 1,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 0,
+      "cap": 2,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 0.5,
+      "cap": 1,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 0.5,
+      "cap": 2,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 1,
+      "cap": 1,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 1,
+      "cap": 2,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 1.5,
+      "cap": 1,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 1.5,
+      "cap": 2,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 2,
+      "cap": 1,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 2,
+      "cap": 2,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 3,
+      "cap": 1,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "density": 3,
+      "cap": 2,
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 0,
+      "cap": 1,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 0,
+      "cap": 2,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 0.5,
+      "cap": 1,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 0.5,
+      "cap": 2,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 1,
+      "cap": 1,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 1,
+      "cap": 2,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 1.5,
+      "cap": 1,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 1.5,
+      "cap": 2,
+      "expected": [
+        0,
+        2
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 2,
+      "cap": 1,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 2,
+      "cap": 2,
+      "expected": [
+        0,
+        2
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 3,
+      "cap": 1,
+      "expected": [
+        0,
+        1
+      ]
+    },
+    {
+      "width": 0,
+      "height": 1,
+      "density": 3,
+      "cap": 2,
+      "expected": [
+        0,
+        2
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 0,
+      "cap": 1,
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 0,
+      "cap": 2,
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 0.5,
+      "cap": 1,
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 0.5,
+      "cap": 2,
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 1,
+      "cap": 1,
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 1,
+      "cap": 2,
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 1.5,
+      "cap": 1,
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 1.5,
+      "cap": 2,
+      "expected": [
+        2,
+        3
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 2,
+      "cap": 1,
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 2,
+      "cap": 2,
+      "expected": [
+        3,
+        4
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 3,
+      "cap": 1,
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "width": 1.25,
+      "height": 1.75,
+      "density": 3,
+      "cap": 2,
+      "expected": [
+        3,
+        4
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 0,
+      "cap": 1,
+      "expected": [
+        320,
+        568
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 0,
+      "cap": 2,
+      "expected": [
+        320,
+        568
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 0.5,
+      "cap": 1,
+      "expected": [
+        160,
+        284
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 0.5,
+      "cap": 2,
+      "expected": [
+        160,
+        284
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 1,
+      "cap": 1,
+      "expected": [
+        320,
+        568
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 1,
+      "cap": 2,
+      "expected": [
+        320,
+        568
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 1.5,
+      "cap": 1,
+      "expected": [
+        320,
+        568
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 1.5,
+      "cap": 2,
+      "expected": [
+        480,
+        852
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 2,
+      "cap": 1,
+      "expected": [
+        320,
+        568
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 2,
+      "cap": 2,
+      "expected": [
+        640,
+        1136
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 3,
+      "cap": 1,
+      "expected": [
+        320,
+        568
+      ]
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "density": 3,
+      "cap": 2,
+      "expected": [
+        640,
+        1136
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 0,
+      "cap": 1,
+      "expected": [
+        390,
+        844
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 0,
+      "cap": 2,
+      "expected": [
+        390,
+        844
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 0.5,
+      "cap": 1,
+      "expected": [
+        195,
+        422
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 0.5,
+      "cap": 2,
+      "expected": [
+        195,
+        422
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 1,
+      "cap": 1,
+      "expected": [
+        390,
+        844
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 1,
+      "cap": 2,
+      "expected": [
+        390,
+        844
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 1.5,
+      "cap": 1,
+      "expected": [
+        390,
+        844
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 1.5,
+      "cap": 2,
+      "expected": [
+        585,
+        1266
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 2,
+      "cap": 1,
+      "expected": [
+        390,
+        844
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 2,
+      "cap": 2,
+      "expected": [
+        780,
+        1688
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 3,
+      "cap": 1,
+      "expected": [
+        390,
+        844
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "density": 3,
+      "cap": 2,
+      "expected": [
+        780,
+        1688
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 0,
+      "cap": 1,
+      "expected": [
+        844,
+        390
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 0,
+      "cap": 2,
+      "expected": [
+        844,
+        390
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 0.5,
+      "cap": 1,
+      "expected": [
+        422,
+        195
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 0.5,
+      "cap": 2,
+      "expected": [
+        422,
+        195
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 1,
+      "cap": 1,
+      "expected": [
+        844,
+        390
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 1,
+      "cap": 2,
+      "expected": [
+        844,
+        390
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 1.5,
+      "cap": 1,
+      "expected": [
+        844,
+        390
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 1.5,
+      "cap": 2,
+      "expected": [
+        1266,
+        585
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 2,
+      "cap": 1,
+      "expected": [
+        844,
+        390
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 2,
+      "cap": 2,
+      "expected": [
+        1688,
+        780
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 3,
+      "cap": 1,
+      "expected": [
+        844,
+        390
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "density": 3,
+      "cap": 2,
+      "expected": [
+        1688,
+        780
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 0,
+      "cap": 1,
+      "expected": [
+        512,
+        769
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 0,
+      "cap": 2,
+      "expected": [
+        512,
+        769
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 0.5,
+      "cap": 1,
+      "expected": [
+        256,
+        384
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 0.5,
+      "cap": 2,
+      "expected": [
+        256,
+        384
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 1,
+      "cap": 1,
+      "expected": [
+        512,
+        769
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 1,
+      "cap": 2,
+      "expected": [
+        512,
+        769
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 1.5,
+      "cap": 1,
+      "expected": [
+        512,
+        769
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 1.5,
+      "cap": 2,
+      "expected": [
+        768,
+        1153
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 2,
+      "cap": 1,
+      "expected": [
+        512,
+        769
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 2,
+      "cap": 2,
+      "expected": [
+        1025,
+        1537
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 3,
+      "cap": 1,
+      "expected": [
+        512,
+        769
+      ]
+    },
+    {
+      "width": 512.25,
+      "height": 768.5,
+      "density": 3,
+      "cap": 2,
+      "expected": [
+        1025,
+        1537
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 0,
+      "cap": 1,
+      "expected": [
+        1280,
+        800
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 0,
+      "cap": 2,
+      "expected": [
+        1280,
+        800
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 0.5,
+      "cap": 1,
+      "expected": [
+        640,
+        400
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 0.5,
+      "cap": 2,
+      "expected": [
+        640,
+        400
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 1,
+      "cap": 1,
+      "expected": [
+        1280,
+        800
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 1,
+      "cap": 2,
+      "expected": [
+        1280,
+        800
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 1.5,
+      "cap": 1,
+      "expected": [
+        1280,
+        800
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 1.5,
+      "cap": 2,
+      "expected": [
+        1920,
+        1200
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 2,
+      "cap": 1,
+      "expected": [
+        1280,
+        800
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 2,
+      "cap": 2,
+      "expected": [
+        2560,
+        1600
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 3,
+      "cap": 1,
+      "expected": [
+        1280,
+        800
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "density": 3,
+      "cap": 2,
+      "expected": [
+        2560,
+        1600
+      ]
+    }
+  ]
+}

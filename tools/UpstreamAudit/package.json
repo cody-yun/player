@@ -1,0 +1,7 @@
+{
+  "name": "livliv-unity-upstream-audit",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.18" },
+  "dependencies": { "typescript": "6.0.3" }
+}

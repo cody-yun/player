@@ -1,0 +1,21 @@
+// Executes PlayerBase's original draw/controls/driver lifetime with a surface-only subclass.
+import fs from 'node:fs';import zlib from 'node:zlib';import crypto from 'node:crypto';import {fileURLToPath} from 'node:url';
+import {PlayerBase} from '../../src/base.ts';import {defaultParams} from '../../src/runtime/params.ts';
+const root=fileURLToPath(new URL('../../',import.meta.url));globalThis.addEventListener=()=>{};globalThis.removeEventListener=()=>{};globalThis.document={addEventListener(){},removeEventListener(){}};let raf=0;globalThis.requestAnimationFrame=()=>++raf;globalThis.cancelAnimationFrame=()=>{};
+let rng=987654321,randomCalls=0;Math.random=()=>{rng=(Math.imul(rng,1664525)+1013904223)>>>0;randomCalls++;return rng/4294967296};
+const seen={model:{anchors:{head:{cx:300,cy:220,rx:100,ry:140}}},lastView:[.003,.003,-1,-1.15,768,1024]};
+class TestPlayer extends PlayerBase{
+ constructor(){const pose=defaultParams();super({clientWidth:768,clientHeight:1024,addEventListener(){},removeEventListener(){},style:{getPropertyValue(){return ''},setProperty(){}}},pose,{autoplay:false,lang:'en'});this.pose=pose;this.t=0;this.E={};this.frees=0;this.draws=0;this.info={expressions:['smile','shy','angry'].map(id=>({id}))}}
+ get drawable(){return !!this.info}get clock(){return this.t}get shownExpr(){return this.E}seen(){return seen}get gl(){return null}show(dt){this.t+=dt;this.draws++}free(){this.frees++}
+}
+const p=new TestPlayer(),removers={},disposed={},order=[];let index=0;
+function add(id,priority){disposed[id]=0;removers[id]=p.use({order:priority,update(f){order.push(id);const q=f.params;if(id==='track'){q.angleX=13+Math.sin(index*.2);f.tracked=true;f.move.x+=.02}else if(id==='offset')f.add({angleX:2,angleY:index%37===0?NaN:3,eyeLOpen:-.1});else if(id==='scale'){q.angleX*=1.2;q.bodyZ=2;f.move.s=1+f.time*.01}else if(id==='voice'){q.mouthOpen=.4+.3*Math.sin(index*.3);if(!f.tracked)q.angleY+=5;f.move.y=.02}else if(id==='invalid'){q.eyeBallX=NaN;q.angleZ=index%2?Infinity:-Infinity}if(id==='offset'&&index===80)removers[id]()},dispose(){disposed[id]++}})}
+const events={0:[['play'],['add','track',-10],['add','offset',0],['add','scale',0],['add','voice',10]],30:[['add','invalid',5]],35:[['remove','invalid']],45:[['remove','track']],60:[['expression','smile',.8]],90:[['act','nod']],100:[['expression','shy',1],['act','shy']],140:[['away',true]],175:[['away',false]],180:[['expression',null,1]],200:[['idle',false]],230:[['blink']],240:[['expression','missing',1]],250:[['idle',true]],260:[['look',.8,.6]],290:[['look',null,0]],300:[['pause']],320:[['play']],350:[['leave']],420:[['dispose']],430:[['add','late',0]],440:[['dispose']]};
+const data={sourceHashes:Object.fromEntries(['src/base.ts','src/follow.ts','src/runtime/idle.ts','src/runtime/actions.ts','src/runtime/params.ts'].map(path=>[path,crypto.createHash('sha256').update(fs.readFileSync(root+path)).digest('hex')])),seen,frames:[]};
+for(index=0;index<460;index++){
+ const es=events[index]??[],results=[];for(const e of es){const [kind,a,b]=e;if(kind==='add')add(a,b);else if(kind==='remove')removers[a]();else if(kind==='expression')results.push(p.setExpression(a,b));else if(kind==='act')p.act(a);else if(kind==='away')p.setAway(a);else if(kind==='idle')p.idle=a;else if(kind==='blink')p.blink();else if(kind==='look')p.lookAt(a,b);else if(kind==='leave')p.onLeave();else p[kind]()}
+ p.params.angleX=9;p.params.mouthOpen=.2;p.params.smile=.1;const elapsed=[1/60,.02,.1,0][index%4];p.visible=!(index>=370&&index<390);order.length=0;
+ if(p.playing&&p.visible)p.draw(Math.min(.05,elapsed));
+ data.frames.push({events:es,elapsed,visible:p.visible,results,expected:JSON.parse(JSON.stringify({params:p.pose,user:p.params,move:p.frame.move,dt:p.frame.dt,time:p.frame.time,tracked:p.frame.tracked,clock:p.t,expressions:p.E,actionY:p.actions.y,playing:p.playing,draws:p.draws,frees:p.frees,disposed,order,randomCalls}))});
+}
+const output=JSON.stringify(data)+'\n',dest=root+'unity/Packages/ai.livliv.player/Tests/Editor/Fixtures/player.json.gz';if(process.argv.includes('--check')){if(zlib.gunzipSync(fs.readFileSync(dest)).toString()!==output)throw Error('player fixture differs');console.log('player fixture matches upstream')}else{fs.writeFileSync(dest,zlib.gzipSync(output,{level:9,mtime:0}));console.log('PlayerBase fixture: 460 frames')}

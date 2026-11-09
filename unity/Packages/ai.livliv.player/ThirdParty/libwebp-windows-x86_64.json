@@ -1,0 +1,12 @@
+{
+  "version": "1.6.0",
+  "source": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+  "sourceSha256": "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564",
+  "artifactSha256": "a09f119a7b3327fe4501403f9cfeb56d912e1ba0d266114b3fdf0fbf45cd9437",
+  "target": "windows-x86_64",
+  "compiler": "x86_64-w64-mingw32-gcc-posix (GCC) 13-posix",
+  "cmake": "cmake version 3.28.3",
+  "baseImage": "ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852",
+  "packages": "cmake\t3.28.3-1build7\ngcc\t4:13.2.0-7ubuntu1\ngcc-mingw-w64-x86-64-posix\t13.2.0-6ubuntu1+26.1\nlibc6:amd64\t2.39-0ubuntu8.9\nmingw-w64-common\t11.0.1-3build1\n",
+  "toolchainImageId": "sha256:26e7fec04dd502fa248861a10236ca0b862260fa9e0b5e0212de6325b8d3a75d"
+}

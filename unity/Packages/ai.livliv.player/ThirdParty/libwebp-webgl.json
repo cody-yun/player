@@ -1,0 +1,14 @@
+{
+  "library": "libwebp decoder",
+  "version": "1.6.0",
+  "sourceArchive": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+  "sourceArchiveSha256": "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564",
+  "sourceHashEvidence": "installed Homebrew webp 1.6.0 formula .brew/webp.rb",
+  "artifact": "Plugins/WebGL/liblivlivwebp.a",
+  "artifactSha256": "4c90893ac2cec4e4fb17bf4455fe8abfc1eac66818d5840d8db1e8c28a484811",
+  "unity": "6000.3.14f1",
+  "toolchain": "emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.39-git",
+  "simd": false,
+  "license": "libwebp-LICENSE.md",
+  "reproduce": "scripts/unity/prepare-webp-webgl.sh"
+}

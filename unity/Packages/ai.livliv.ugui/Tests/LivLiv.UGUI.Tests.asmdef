@@ -1,0 +1,7 @@
+{
+  "name": "LivLiv.UGUI.Tests",
+  "references": ["LivLiv.Runtime", "LivLiv.Unity", "LivLiv.UGUI", "Unity.ugui"],
+  "overrideReferences": true,
+  "precompiledReferences": ["nunit.framework.dll"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

@@ -1,0 +1,20 @@
+{
+  "library": "libwebp decoder",
+  "version": "1.6.0",
+  "source": "https://chromium.googlesource.com/webm/libwebp/",
+  "distribution": "Homebrew webp 1.6.0, macOS arm64",
+  "originalLibrary": "libwebpdecoder.3.2.0.dylib",
+  "originalSha256": "f61ee1f3eacd59a18603c60380493bdffdc56e8a267f154961399a946ef82138",
+  "artifactSha256": "ef680cf47d7758b9437d878176c3e49b29361d9a750cb2a9851e32353f8a39af",
+  "changes": [
+    "install_name_tool -id @rpath/liblivlivwebp.dylib",
+    "codesign --force --sign - (ad hoc)"
+  ],
+  "platforms": [
+    "macOS ARM64"
+  ],
+  "dependencies": [
+    "/usr/lib/libSystem.B.dylib"
+  ],
+  "license": "libwebp-LICENSE.md"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "LivLiv.UGUI",
+  "rootNamespace": "LivLiv.Unity.UI",
+  "references": ["LivLiv.Runtime", "LivLiv.Unity", "Unity.ugui"]
+}

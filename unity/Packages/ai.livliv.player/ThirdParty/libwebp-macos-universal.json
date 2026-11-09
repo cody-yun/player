@@ -1,0 +1,24 @@
+{
+  "library": "libwebp decoder",
+  "version": "1.6.0",
+  "source": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+  "sourceSha256": "e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564",
+  "artifactSha256": "4616310cb4bd97fa2bcca3a2c13954a7719fba0725e18481911eb1947b181453",
+  "architectures": [
+    "arm64",
+    "x86_64"
+  ],
+  "sliceSha256": {
+    "arm64": "32f91c5223db514d17838fa82e6238359ab062f0f0a6aef0d1b88c6be61d72a4",
+    "x86_64": "2f21bd2c1745a46558c9e3a3a19abdc97c825521e7d489f089f43543693cbb3e"
+  },
+  "deploymentTarget": "13.0",
+  "xcode": "Xcode 16.4\nBuild version 16F6",
+  "sdk": "15.5",
+  "compiler": "Apple clang version 17.0.0 (clang-1700.0.13.5)",
+  "cmake": "cmake version 4.0.0",
+  "installName": "@rpath/liblivlivwebp.dylib",
+  "signature": "ad hoc, identifier ai.livliv.webp",
+  "license": "libwebp-LICENSE.md",
+  "previousProvenance": "libwebp.json records the historical ARM64 Homebrew artifact"
+}

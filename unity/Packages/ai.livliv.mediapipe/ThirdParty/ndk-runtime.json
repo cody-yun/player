@@ -1,0 +1,7 @@
+{
+  "ndk": "27.2.12479018",
+  "unity": "6000.3.14f1",
+  "artifact": "Runtime/Plugins/Android/arm64-v8a/libc++_shared.so",
+  "sha256": "f9992c4ba6b7c5a716e3a202fceb1ce029d6a2b0605838ac6b3219f489dd7970",
+  "source": "Unity Android NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so"
+}

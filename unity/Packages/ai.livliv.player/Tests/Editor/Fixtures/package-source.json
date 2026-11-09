@@ -1,0 +1,805 @@
+{
+  "sourceHashes": {
+    "src/index.ts": "6c52b3c9690ce5b2329a7a0b77d0bace320b5ec38e508d09f31da9b6ab53cc5f",
+    "src/zip.ts": "12c5784a51c32b40c525df8716875a298522f54d10fe3897a47ac923680e4478",
+    "src/runtime/format.ts": "565614e2377cb6cdd7b60b8207045b422a56272a9847725b97bab4d28dee64ce",
+    "src/errors.ts": "f9efb0935372ad64a2fc18484f441656bda66ac81e32216b9a51b179deaec1e8"
+  },
+  "cases": [
+    {
+      "name": "direct-json",
+      "kind": "files",
+      "files": {
+        "model.json": "eyJmb3JtYXQiOiJsaXZsaXYtbW9kZWwiLCJ2ZXJzaW9uIjo0LCJuYW1lIjoiU3ludGhldGljIiwiY2FudmFzIjpbNjQsNjRdLCJtZXRhIjp7ImdlbmVyYXRvciI6eyJuYW1lIjoidGVzdCJ9LCJ3YXRlcm1hcmsiOnsia2luZCI6Im5vbmUifX0sImFuY2hvcnMiOnsiaGVhZCI6eyJjeCI6MzIsImN5IjoyMCwicngiOjEyLCJyeSI6MTR9LCJmYWNlIjpbMjAsOCw0NCwzNF0sIm5lY2tfeSI6MzQsInRvcF95IjowLCJib3R0b21feSI6NjMsImhhaXJfcm9vdF95Ijo2fSwibGF5ZXJzIjpbeyJpZCI6ImJvZHkiLCJ0ZXh0dXJlIjoidGV4dHVyZXMvYm9keS5wbmciLCJ4IjowLCJ5IjowLCJ3Ijo2NCwiaCI6NjQsImdyb3VwIjoiYm9keSJ9XSwiZXhwcmVzc2lvbnMiOlt7ImlkIjoic21pbGUiLCJsYWJlbCI6eyJlbiI6IlNtaWxlIiwiamEiOiLnrJHpoZQiLCJ6aCI6IueskSIsInpoLUhhbnQiOiLlvq7nrJEifSwiaG90a2V5IjoiMSJ9XX0="
+      },
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    },
+    {
+      "name": "normalized-json",
+      "kind": "files",
+      "files": {
+        "./\\Wrapped\\model.json": "eyJmb3JtYXQiOiJsaXZsaXYtbW9kZWwiLCJ2ZXJzaW9uIjo0LCJuYW1lIjoiU3ludGhldGljIiwiY2FudmFzIjpbNjQsNjRdLCJtZXRhIjp7ImdlbmVyYXRvciI6eyJuYW1lIjoidGVzdCJ9LCJ3YXRlcm1hcmsiOnsia2luZCI6Im5vbmUifX0sImFuY2hvcnMiOnsiaGVhZCI6eyJjeCI6MzIsImN5IjoyMCwicngiOjEyLCJyeSI6MTR9LCJmYWNlIjpbMjAsOCw0NCwzNF0sIm5lY2tfeSI6MzQsInRvcF95IjowLCJib3R0b21feSI6NjMsImhhaXJfcm9vdF95Ijo2fSwibGF5ZXJzIjpbeyJpZCI6ImJvZHkiLCJ0ZXh0dXJlIjoidGV4dHVyZXMvYm9keS5wbmciLCJ4IjowLCJ5IjowLCJ3Ijo2NCwiaCI6NjQsImdyb3VwIjoiYm9keSJ9XSwiZXhwcmVzc2lvbnMiOlt7ImlkIjoic21pbGUiLCJsYWJlbCI6eyJlbiI6IlNtaWxlIiwiamEiOiLnrJHpoZQiLCJ6aCI6IueskSIsInpoLUhhbnQiOiLlvq7nrJEifSwiaG90a2V5IjoiMSJ9XX0="
+      },
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    },
+    {
+      "name": "picked-package",
+      "kind": "files",
+      "files": {
+        "avatar.livliv": "UEsDBBQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAV3JhcHBlZC9tb2RlbC5qc29uTVFbTsMwELzLfptHm6hCOQH/fFaocpNtHZLYkbNtE6ocAokL8I84ArdBiFswmxQJKZI9O96Z2c2ZdiE2Viijujziu2pCwTUZOnLsyuApSw152zBePAxeHEuZg86tP9qOsvUqNav00VDDYik70549RyshKrg0CndCo6GTFYZbrJSrSl+A88EzjSCtz12InVKObaFn3lOWLGE2ULa8NRSBF8AReJGiZ2dz6K/B3Zk0NYkG8ZxXGzxIEFxCq1e0boNIaBSsEkPOlnETQ5CpAKHaDqze6zOVmmobigFTCvdyiPMI0627Uea69Xuw/aQ865+gA0M3H/sYDu2fzIhQ3Ldo1oX+M+masmZS8y1WjnnZ65Yv1Sesk77fX37eXoGe3Yym69W99frLvj4/tIT8LkjFSEIL2I2/UEsDBBQAAAAIAAAAIVxfEBvVGQAAABcAAAAVAAAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uq1YqSy0qzszPU7Iy1FHKTq0sVrKKjq0FAFBLAQIUAxQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAAAAAAAAAAACAAQAAAABXcmFwcGVkL21vZGVsLmpzb25QSwECFAMUAAAACAAAACFcXxAb1RkAAAAXAAAAFQAAAAAAAAAAAAAAgAFlAQAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uUEsFBgAAAAACAAIAgwAAALEBAAAAAA=="
+      },
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    },
+    {
+      "name": "picked-package-unusual-extension",
+      "kind": "files",
+      "files": {
+        "avatar.dat": "UEsDBBQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAV3JhcHBlZC9tb2RlbC5qc29uTVFbTsMwELzLfptHm6hCOQH/fFaocpNtHZLYkbNtE6ocAokL8I84ArdBiFswmxQJKZI9O96Z2c2ZdiE2Viijujziu2pCwTUZOnLsyuApSw152zBePAxeHEuZg86tP9qOsvUqNav00VDDYik70549RyshKrg0CndCo6GTFYZbrJSrSl+A88EzjSCtz12InVKObaFn3lOWLGE2ULa8NRSBF8AReJGiZ2dz6K/B3Zk0NYkG8ZxXGzxIEFxCq1e0boNIaBSsEkPOlnETQ5CpAKHaDqze6zOVmmobigFTCvdyiPMI0627Uea69Xuw/aQ865+gA0M3H/sYDu2fzIhQ3Ldo1oX+M+masmZS8y1WjnnZ65Yv1Sesk77fX37eXoGe3Yym69W99frLvj4/tIT8LkjFSEIL2I2/UEsDBBQAAAAIAAAAIVxfEBvVGQAAABcAAAAVAAAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uq1YqSy0qzszPU7Iy1FHKTq0sVrKKjq0FAFBLAQIUAxQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAAAAAAAAAAACAAQAAAABXcmFwcGVkL21vZGVsLmpzb25QSwECFAMUAAAACAAAACFcXxAb1RkAAAAXAAAAFQAAAAAAAAAAAAAAgAFlAQAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uUEsFBgAAAAACAAIAgwAAALEBAAAAAA==",
+        "note.txt": "bm90ZQ=="
+      },
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    },
+    {
+      "name": "picked-package-ignores-outer-files",
+      "kind": "files",
+      "files": {
+        "note.txt": "bm90ZQ==",
+        "avatar.zip": "UEsDBBQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAV3JhcHBlZC9tb2RlbC5qc29uTVFbTsMwELzLfptHm6hCOQH/fFaocpNtHZLYkbNtE6ocAokL8I84ArdBiFswmxQJKZI9O96Z2c2ZdiE2Viijujziu2pCwTUZOnLsyuApSw152zBePAxeHEuZg86tP9qOsvUqNav00VDDYik70549RyshKrg0CndCo6GTFYZbrJSrSl+A88EzjSCtz12InVKObaFn3lOWLGE2ULa8NRSBF8AReJGiZ2dz6K/B3Zk0NYkG8ZxXGzxIEFxCq1e0boNIaBSsEkPOlnETQ5CpAKHaDqze6zOVmmobigFTCvdyiPMI0627Uea69Xuw/aQ865+gA0M3H/sYDu2fzIhQ3Ldo1oX+M+masmZS8y1WjnnZ65Yv1Sesk77fX37eXoGe3Yym69W99frLvj4/tIT8LkjFSEIL2I2/UEsDBBQAAAAIAAAAIVxfEBvVGQAAABcAAAAVAAAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uq1YqSy0qzszPU7Iy1FHKTq0sVrKKjq0FAFBLAQIUAxQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAAAAAAAAAAACAAQAAAABXcmFwcGVkL21vZGVsLmpzb25QSwECFAMUAAAACAAAACFcXxAb1RkAAAAXAAAAFQAAAAAAAAAAAAAAgAFlAQAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uUEsFBgAAAAACAAIAgwAAALEBAAAAAA==",
+        "model.vrm": "Z2xURgIAAAA="
+      },
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    },
+    {
+      "name": "blob-package",
+      "kind": "blob",
+      "bytes": "UEsDBBQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAV3JhcHBlZC9tb2RlbC5qc29uTVFbTsMwELzLfptHm6hCOQH/fFaocpNtHZLYkbNtE6ocAokL8I84ArdBiFswmxQJKZI9O96Z2c2ZdiE2Viijujziu2pCwTUZOnLsyuApSw152zBePAxeHEuZg86tP9qOsvUqNav00VDDYik70549RyshKrg0CndCo6GTFYZbrJSrSl+A88EzjSCtz12InVKObaFn3lOWLGE2ULa8NRSBF8AReJGiZ2dz6K/B3Zk0NYkG8ZxXGzxIEFxCq1e0boNIaBSsEkPOlnETQ5CpAKHaDqze6zOVmmobigFTCvdyiPMI0627Uea69Xuw/aQ865+gA0M3H/sYDu2fzIhQ3Ldo1oX+M+masmZS8y1WjnnZ65Yv1Sesk77fX37eXoGe3Yym69W99frLvj4/tIT8LkjFSEIL2I2/UEsDBBQAAAAIAAAAIVxfEBvVGQAAABcAAAAVAAAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uq1YqSy0qzszPU7Iy1FHKTq0sVrKKjq0FAFBLAQIUAxQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAAAAAAAAAAACAAQAAAABXcmFwcGVkL21vZGVsLmpzb25QSwECFAMUAAAACAAAACFcXxAb1RkAAAAXAAAAFQAAAAAAAAAAAAAAgAFlAQAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uUEsFBgAAAAACAAIAgwAAALEBAAAAAA==",
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    },
+    {
+      "name": "json-takes-precedence",
+      "kind": "files",
+      "files": {
+        "model.json": "eyJmb3JtYXQiOiJsaXZsaXYtbW9kZWwiLCJ2ZXJzaW9uIjo0LCJuYW1lIjoiU3ludGhldGljIiwiY2FudmFzIjpbNjQsNjRdLCJtZXRhIjp7ImdlbmVyYXRvciI6eyJuYW1lIjoidGVzdCJ9LCJ3YXRlcm1hcmsiOnsia2luZCI6Im5vbmUifX0sImFuY2hvcnMiOnsiaGVhZCI6eyJjeCI6MzIsImN5IjoyMCwicngiOjEyLCJyeSI6MTR9LCJmYWNlIjpbMjAsOCw0NCwzNF0sIm5lY2tfeSI6MzQsInRvcF95IjowLCJib3R0b21feSI6NjMsImhhaXJfcm9vdF95Ijo2fSwibGF5ZXJzIjpbeyJpZCI6ImJvZHkiLCJ0ZXh0dXJlIjoidGV4dHVyZXMvYm9keS5wbmciLCJ4IjowLCJ5IjowLCJ3Ijo2NCwiaCI6NjQsImdyb3VwIjoiYm9keSJ9XSwiZXhwcmVzc2lvbnMiOlt7ImlkIjoic21pbGUiLCJsYWJlbCI6eyJlbiI6IlNtaWxlIiwiamEiOiLnrJHpoZQiLCJ6aCI6IueskSIsInpoLUhhbnQiOiLlvq7nrJEifSwiaG90a2V5IjoiMSJ9XX0=",
+        "bad.zip": "UEsDBGJyb2tlbg==",
+        "other.glb": "Z2xURgIAAAA="
+      },
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    },
+    {
+      "name": "shallowest-json",
+      "kind": "files",
+      "files": {
+        "longer/model.json": "e30=",
+        "model.json": "eyJmb3JtYXQiOiJsaXZsaXYtbW9kZWwiLCJ2ZXJzaW9uIjo0LCJuYW1lIjoiU3ludGhldGljIiwiY2FudmFzIjpbNjQsNjRdLCJtZXRhIjp7ImdlbmVyYXRvciI6eyJuYW1lIjoidGVzdCJ9LCJ3YXRlcm1hcmsiOnsia2luZCI6Im5vbmUifX0sImFuY2hvcnMiOnsiaGVhZCI6eyJjeCI6MzIsImN5IjoyMCwicngiOjEyLCJyeSI6MTR9LCJmYWNlIjpbMjAsOCw0NCwzNF0sIm5lY2tfeSI6MzQsInRvcF95IjowLCJib3R0b21feSI6NjMsImhhaXJfcm9vdF95Ijo2fSwibGF5ZXJzIjpbeyJpZCI6ImJvZHkiLCJ0ZXh0dXJlIjoidGV4dHVyZXMvYm9keS5wbmciLCJ4IjowLCJ5IjowLCJ3Ijo2NCwiaCI6NjQsImdyb3VwIjoiYm9keSJ9XSwiZXhwcmVzc2lvbnMiOlt7ImlkIjoic21pbGUiLCJsYWJlbCI6eyJlbiI6IlNtaWxlIiwiamEiOiLnrJHpoZQiLCJ6aCI6IueskSIsInpoLUhhbnQiOiLlvq7nrJEifSwiaG90a2V5IjoiMSJ9XX0="
+      },
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    },
+    {
+      "name": "first-zip-is-authoritative",
+      "kind": "files",
+      "files": {
+        "bad.zip": "UEsDBGJyb2tlbg==",
+        "good.zip": "UEsDBBQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAV3JhcHBlZC9tb2RlbC5qc29uTVFbTsMwELzLfptHm6hCOQH/fFaocpNtHZLYkbNtE6ocAokL8I84ArdBiFswmxQJKZI9O96Z2c2ZdiE2Viijujziu2pCwTUZOnLsyuApSw152zBePAxeHEuZg86tP9qOsvUqNav00VDDYik70549RyshKrg0CndCo6GTFYZbrJSrSl+A88EzjSCtz12InVKObaFn3lOWLGE2ULa8NRSBF8AReJGiZ2dz6K/B3Zk0NYkG8ZxXGzxIEFxCq1e0boNIaBSsEkPOlnETQ5CpAKHaDqze6zOVmmobigFTCvdyiPMI0627Uea69Xuw/aQ865+gA0M3H/sYDu2fzIhQ3Ldo1oX+M+masmZS8y1WjnnZ65Yv1Sesk77fX37eXoGe3Yym69W99frLvj4/tIT8LkjFSEIL2I2/UEsDBBQAAAAIAAAAIVxfEBvVGQAAABcAAAAVAAAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uq1YqSy0qzszPU7Iy1FHKTq0sVrKKjq0FAFBLAQIUAxQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAAAAAAAAAAACAAQAAAABXcmFwcGVkL21vZGVsLmpzb25QSwECFAMUAAAACAAAACFcXxAb1RkAAAAXAAAAFQAAAAAAAAAAAAAAgAFlAQAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uUEsFBgAAAAACAAIAgwAAALEBAAAAAA=="
+      },
+      "expected": {
+        "error": "not-a-model",
+        "message": "LivLiv: this is not a ZIP (no end record)"
+      }
+    },
+    {
+      "name": "no-json",
+      "kind": "files",
+      "files": {
+        "note.txt": "bm90ZQ=="
+      },
+      "expected": {
+        "error": "missing-file",
+        "message": "LivLiv: no model.json among the files"
+      }
+    },
+    {
+      "name": "vrm-name",
+      "kind": "files",
+      "files": {
+        "Avatar.VRM": "dW5rbm93bg=="
+      },
+      "expected": {
+        "error": "not-a-model",
+        "message": "LivLiv: this is a VRM or glTF file, and a Player plays LivLiv models: use a BodyPlayer with VrmBody (@livliv-dev/player/vrm)"
+      }
+    },
+    {
+      "name": "glb-name",
+      "kind": "files",
+      "files": {
+        "folder/avatar.glb": "Z2xURgIAAAA="
+      },
+      "expected": {
+        "error": "not-a-model",
+        "message": "LivLiv: this is a VRM or glTF file, and a Player plays LivLiv models: use a BodyPlayer with VrmBody (@livliv-dev/player/vrm)"
+      }
+    },
+    {
+      "name": "gltf-name-is-not-special",
+      "kind": "files",
+      "files": {
+        "avatar.gltf": "e30="
+      },
+      "expected": {
+        "error": "missing-file",
+        "message": "LivLiv: no model.json among the files"
+      }
+    },
+    {
+      "name": "blob-glb-magic",
+      "kind": "blob",
+      "bytes": "Z2xURgIAAAA=",
+      "expected": {
+        "error": "not-a-model",
+        "message": "LivLiv: this is a VRM or glTF file, and a Player plays LivLiv models: use a BodyPlayer with VrmBody (@livliv-dev/player/vrm)"
+      }
+    },
+    {
+      "name": "blob-short-magic",
+      "kind": "blob",
+      "bytes": "Z2xU",
+      "expected": {
+        "error": "not-a-model",
+        "message": "LivLiv: this file is not a .livliv package (not a ZIP)"
+      }
+    },
+    {
+      "name": "blob-not-zip",
+      "kind": "blob",
+      "bytes": "b3JkaW5hcnkgZmlsZQ==",
+      "expected": {
+        "error": "not-a-model",
+        "message": "LivLiv: this file is not a .livliv package (not a ZIP)"
+      }
+    },
+    {
+      "name": "json-before-vrm",
+      "kind": "files",
+      "files": {
+        "model.json": "e30=",
+        "avatar.vrm": "Z2xURgIAAAA="
+      },
+      "expected": {
+        "error": "invalid",
+        "message": "LivLiv: this model is not valid: its canvas NaN x NaN is out of range"
+      }
+    },
+    {
+      "name": "blob-nested-zip-not-recursive",
+      "kind": "blob",
+      "bytes": "UEsDBBQAAAAIAAAAIVz2NH3i0gEAAEoCAAAMAAAAaW5uZXIubGl2bGl2C/BmZhFhYGDgAGLFmFSz59dMGRkYrgGxEFAkvCixoCA1RT83PyU1Ry+rOD/PNzDa77CBwJ7TdbPdZ69wsmT8XxO2omhyruykGxM35wqvkmHq5P7Qb8G03bEj2mC2CKfmJFvrezNvnp1ZpmgWprF4l82j3VlOB00lrYrenHqg6c1bedsgzoYnTsZ7ZvO5tfa3+jZ91TJd/eViwOEkTevL82zdtRW1dphwlTstXjhZtC16zZTVXvENnw8a9yqsPR/bMTeoL3dh+r3gaTqJZgHb9piKNIofEKyYuCg9vfjF+oN3Z5qYdrJ9nBMubeMhEOO0OnxLXrNHhsgaIedz0wqFnSesZFh4i2/NvdfGU2dlSXcxBnN9L+r4zHF57e7AZ7u+Vm/4u8Tm9fwFzM7m8r8l+N7OP9MRcGd7xrXWf8YvZ21KC/qsG9ZXefP1NP2r6msm77sfX3cvrnHe3Z5lr6/u/frr9D47+y0tf/Q8jno4cd/o3R+AEsjxAtJXJYEscSAWRQrk7NTKtPyi3GJwOK8O0/LW1Tp35nzwJqMrgaf81uqEberqW8vKEODNyCTCjDvKYKCBkQFrBKLrR3cNQn8qIw63BXizsoGUMAFhM5DeCLYKAFBLAQIUAxQAAAAIAAAAIVz2NH3i0gEAAEoCAAAMAAAAAAAAAAAAAACAAQAAAABpbm5lci5saXZsaXZQSwUGAAAAAAEAAQA6AAAA/AEAAAAA",
+      "expected": {
+        "error": "missing-file",
+        "message": "LivLiv: no model.json among the files"
+      }
+    },
+    {
+      "name": "picked-nested-zip-not-recursive",
+      "kind": "files",
+      "files": {
+        "outer.livliv": "UEsDBBQAAAAIAAAAIVz2NH3i0gEAAEoCAAAMAAAAaW5uZXIubGl2bGl2C/BmZhFhYGDgAGLFmFSz59dMGRkYrgGxEFAkvCixoCA1RT83PyU1Ry+rOD/PNzDa77CBwJ7TdbPdZ69wsmT8XxO2omhyruykGxM35wqvkmHq5P7Qb8G03bEj2mC2CKfmJFvrezNvnp1ZpmgWprF4l82j3VlOB00lrYrenHqg6c1bedsgzoYnTsZ7ZvO5tfa3+jZ91TJd/eViwOEkTevL82zdtRW1dphwlTstXjhZtC16zZTVXvENnw8a9yqsPR/bMTeoL3dh+r3gaTqJZgHb9piKNIofEKyYuCg9vfjF+oN3Z5qYdrJ9nBMubeMhEOO0OnxLXrNHhsgaIedz0wqFnSesZFh4i2/NvdfGU2dlSXcxBnN9L+r4zHF57e7AZ7u+Vm/4u8Tm9fwFzM7m8r8l+N7OP9MRcGd7xrXWf8YvZ21KC/qsG9ZXefP1NP2r6msm77sfX3cvrnHe3Z5lr6/u/frr9D47+y0tf/Q8jno4cd/o3R+AEsjxAtJXJYEscSAWRQrk7NTKtPyi3GJwOK8O0/LW1Tp35nzwJqMrgaf81uqEberqW8vKEODNyCTCjDvKYKCBkQFrBKLrR3cNQn8qIw63BXizsoGUMAFhM5DeCLYKAFBLAQIUAxQAAAAIAAAAIVz2NH3i0gEAAEoCAAAMAAAAAAAAAAAAAACAAQAAAABpbm5lci5saXZsaXZQSwUGAAAAAAEAAQA6AAAA/AEAAAAA"
+      },
+      "expected": {
+        "error": "missing-file",
+        "message": "LivLiv: no model.json among the files"
+      }
+    },
+    {
+      "name": "zip-vrm-name",
+      "kind": "blob",
+      "bytes": "UEsDBBQAAAAIAAAAIVzZf78ZCgAAAAgAAAAKAAAAYXZhdGFyLlZyTUvPCXFjYmBgAABQSwECFAMUAAAACAAAACFc2X+/GQoAAAAIAAAACgAAAAAAAAAAAAAAgAEAAAAAYXZhdGFyLlZyTVBLBQYAAAAAAQABADgAAAAyAAAAAAA=",
+      "expected": {
+        "error": "not-a-model",
+        "message": "LivLiv: this is a VRM or glTF file, and a Player plays LivLiv models: use a BodyPlayer with VrmBody (@livliv-dev/player/vrm)"
+      }
+    },
+    {
+      "name": "first-valid-zip-is-authoritative",
+      "kind": "files",
+      "files": {
+        "first.livliv": "UEsDBBQAAAAIAAAAIVwU+r3PBgAAAAQAAAAIAAAAbm90ZS50eHTLyy9JBQBQSwECFAMUAAAACAAAACFcFPq9zwYAAAAEAAAACAAAAAAAAAAAAAAAgAEAAAAAbm90ZS50eHRQSwUGAAAAAAEAAQA2AAAALAAAAAAA",
+        "second.livliv": "UEsDBBQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAV3JhcHBlZC9tb2RlbC5qc29uTVFbTsMwELzLfptHm6hCOQH/fFaocpNtHZLYkbNtE6ocAokL8I84ArdBiFswmxQJKZI9O96Z2c2ZdiE2Viijujziu2pCwTUZOnLsyuApSw152zBePAxeHEuZg86tP9qOsvUqNav00VDDYik70549RyshKrg0CndCo6GTFYZbrJSrSl+A88EzjSCtz12InVKObaFn3lOWLGE2ULa8NRSBF8AReJGiZ2dz6K/B3Zk0NYkG8ZxXGzxIEFxCq1e0boNIaBSsEkPOlnETQ5CpAKHaDqze6zOVmmobigFTCvdyiPMI0627Uea69Xuw/aQ865+gA0M3H/sYDu2fzIhQ3Ldo1oX+M+masmZS8y1WjnnZ65Yv1Sesk77fX37eXoGe3Yym69W99frLvj4/tIT8LkjFSEIL2I2/UEsDBBQAAAAIAAAAIVxfEBvVGQAAABcAAAAVAAAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uq1YqSy0qzszPU7Iy1FHKTq0sVrKKjq0FAFBLAQIUAxQAAAAIAAAAIVxlNufWNQEAANYBAAASAAAAAAAAAAAAAACAAQAAAABXcmFwcGVkL21vZGVsLmpzb25QSwECFAMUAAAACAAAACFcXxAb1RkAAAAXAAAAFQAAAAAAAAAAAAAAgAFlAQAAV3JhcHBlZC9rZXlmb3Jtcy5qc29uUEsFBgAAAAACAAIAgwAAALEBAAAAAA=="
+      },
+      "expected": {
+        "error": "missing-file",
+        "message": "LivLiv: no model.json among the files"
+      }
+    },
+    {
+      "name": "zip-json-before-vrm",
+      "kind": "blob",
+      "bytes": "UEsDBBQAAAAIAAAAIVxlNufWNQEAANYBAAAKAAAAbW9kZWwuanNvbk1RW07DMBC8y36bR5uoQjkB/3xWqHKTbR2S2JGzbROqHAKJC/CPOAK3QYhbMJsUCSmSPTvemdnNmXYhNlYoo7o84rtqQsE1GTpy7MrgKUsNedswXjwMXhxLmYPOrT/ajrL1KjWr9NFQw2IpO9OePUcrISq4NAp3QqOhkxWGW6yUq0pfgPPBM40grc9diJ1Sjm2hZ95TlixhNlC2vDUUgRfAEXiRomdnc+ivwd2ZNDWJBvGcVxs8SBBcQqtXtG6DSGgUrBJDzpZxE0OQqQCh2g6s3uszlZpqG4oBUwr3cojzCNOtu1HmuvV7sP2kPOufoANDNx/7GA7tn8yIUNy3aNaF/jPpmrJmUvMtVo552euWL9UnrJO+319+3l6Bnt2MpuvVvfX6y74+P7SE/C5IxUhCC9iNv1BLAwQUAAAACAAAACFc2X+/GQoAAAAIAAAACgAAAGF2YXRhci5nbGJLzwlxY2JgYAAAUEsBAhQDFAAAAAgAAAAhXGU259Y1AQAA1gEAAAoAAAAAAAAAAAAAAIABAAAAAG1vZGVsLmpzb25QSwECFAMUAAAACAAAACFc2X+/GQoAAAAIAAAACgAAAAAAAAAAAAAAgAFdAQAAYXZhdGFyLmdsYlBLBQYAAAAAAgACAHAAAACPAQAAAAA=",
+      "expected": {
+        "model": {
+          "format": "livliv-model",
+          "version": 4,
+          "name": "Synthetic",
+          "canvas": [
+            64,
+            64
+          ],
+          "anchors": {
+            "head": {
+              "cx": 32,
+              "cy": 20,
+              "rx": 12,
+              "ry": 14
+            },
+            "face": [
+              20,
+              8,
+              44,
+              34
+            ],
+            "neck_y": 34,
+            "top_y": 0,
+            "bottom_y": 63,
+            "hair_root_y": 6
+          },
+          "layers": [
+            {
+              "id": "body",
+              "texture": "textures/body.png",
+              "x": 0,
+              "y": 0,
+              "w": 64,
+              "h": 64,
+              "group": "body",
+              "depth": 0,
+              "name": "body"
+            }
+          ],
+          "expressions": [
+            {
+              "id": "smile",
+              "label": "Smile",
+              "labels": {
+                "en": "Smile",
+                "ja": "笑顔",
+                "zh": "笑",
+                "zh-Hant": "微笑"
+              },
+              "key": "1"
+            }
+          ],
+          "watermark": null,
+          "meta": {
+            "generator": {
+              "name": "test"
+            },
+            "watermark": {
+              "kind": "none"
+            }
+          }
+        },
+        "keyforms": null,
+        "error": null
+      }
+    }
+  ]
+}

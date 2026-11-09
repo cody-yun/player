@@ -1,0 +1,229 @@
+{
+  "sourceHashes": {
+    "src/base.ts": "4118ec1d657570ac456e54338bc5c18084543e9bd2fc2bf562c1ae9b5ebfc160",
+    "src/runtime/puppet.ts": "1547d5a8522582d1a937a324a165009d26ab44d912b4f4e93739033b530a1775",
+    "src/runtime/format.ts": "565614e2377cb6cdd7b60b8207045b422a56272a9847725b97bab4d28dee64ce"
+  },
+  "progress": [
+    {
+      "calls": [],
+      "expected": []
+    },
+    {
+      "calls": [
+        0,
+        0.2,
+        0.1,
+        0.2,
+        0.8,
+        "build",
+        0.9,
+        "build",
+        1
+      ],
+      "expected": [
+        {
+          "step": "download",
+          "progress": 0
+        },
+        {
+          "step": "download",
+          "progress": 0.2
+        },
+        {
+          "step": "download",
+          "progress": 0.8
+        },
+        {
+          "step": "download",
+          "progress": 1
+        },
+        {
+          "step": "build"
+        }
+      ]
+    },
+    {
+      "calls": [
+        0,
+        "build"
+      ],
+      "expected": [
+        {
+          "step": "download",
+          "progress": 0
+        },
+        {
+          "step": "download",
+          "progress": 1
+        },
+        {
+          "step": "build"
+        }
+      ]
+    },
+    {
+      "calls": [
+        "build",
+        0,
+        1
+      ],
+      "expected": [
+        {
+          "step": "build"
+        }
+      ]
+    },
+    {
+      "calls": [
+        0,
+        1,
+        "build"
+      ],
+      "expected": [
+        {
+          "step": "download",
+          "progress": 0
+        },
+        {
+          "step": "download",
+          "progress": 1
+        },
+        {
+          "step": "build"
+        }
+      ]
+    },
+    {
+      "calls": [
+        0.7,
+        0.8,
+        "build"
+      ],
+      "expected": [
+        {
+          "step": "download",
+          "progress": 0.7
+        },
+        {
+          "step": "download",
+          "progress": 0.8
+        },
+        {
+          "step": "download",
+          "progress": 1
+        },
+        {
+          "step": "build"
+        }
+      ]
+    }
+  ],
+  "versions": [
+    {
+      "name": "char06",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "ig4quy"
+    },
+    {
+      "name": "char07",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "1dh2vum"
+    },
+    {
+      "name": "d01",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "lvc2nd"
+    },
+    {
+      "name": "d02",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "za6mzc"
+    },
+    {
+      "name": "d03",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "ec0w65"
+    },
+    {
+      "name": "d03ft",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "pfkcvc"
+    },
+    {
+      "name": "k01",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "sqbh1b"
+    },
+    {
+      "name": "k02",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "1fpztyb"
+    },
+    {
+      "name": "p01",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "1pvh5vf"
+    },
+    {
+      "name": "p02",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "1h2haml"
+    },
+    {
+      "name": "p03",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "izcpas"
+    },
+    {
+      "name": "q02",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "1auu46y"
+    },
+    {
+      "name": "q03",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "5jhazd"
+    },
+    {
+      "name": "s01",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "15qrhj7"
+    },
+    {
+      "name": "v01",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "16bxuv9"
+    },
+    {
+      "name": "v03",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "kn2c8t"
+    },
+    {
+      "name": "v04",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "193twqx"
+    },
+    {
+      "name": "v05",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "b9bc6p"
+    },
+    {
+      "name": "v06",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "cmzliy"
+    },
+    {
+      "name": "v07",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "2ydcnc"
+    },
+    {
+      "name": "w01",
+      "lastModified": "Mon, 09 Nov 2026 00:00:00 GMT",
+      "expected": "2y1gw3"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "LivLiv.MediaPipe.Tests",
+  "references": ["LivLiv.Runtime", "LivLiv.Unity", "LivLiv.MediaPipe", "Mediapipe.Runtime"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "overrideReferences": true,
+  "precompiledReferences": ["nunit.framework.dll", "Google.Protobuf.dll"]
+}

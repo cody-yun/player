@@ -1,0 +1,12 @@
+{
+  "name": "ai.livliv.ugui",
+  "version": "0.1.0",
+  "displayName": "LivLiv UGUI Presentation",
+  "description": "Optional UGUI presentation adapters for source-mapped LivLiv Player.",
+  "unity": "6000.3",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "ai.livliv.player": "0.1.0",
+    "com.unity.ugui": "2.0.0"
+  }
+}

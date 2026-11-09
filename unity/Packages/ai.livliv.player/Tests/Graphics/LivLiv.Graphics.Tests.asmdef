@@ -1,0 +1,8 @@
+{
+  "name": "LivLiv.Graphics.Tests",
+  "references": ["LivLiv.Runtime", "LivLiv.Unity"],
+  "includePlatforms": ["Editor"],
+  "overrideReferences": true,
+  "precompiledReferences": ["nunit.framework.dll", "Newtonsoft.Json.dll"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

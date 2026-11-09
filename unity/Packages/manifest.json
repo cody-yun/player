@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "com.github.homuler.mediapipe": "file:../ThirdParty/com.github.homuler.mediapipe-0.16.3.tgz",
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.sdk.linux-x86_64": "1.1.1",
+    "com.unity.test-framework": "1.6.0",
+    "com.unity.toolchain.macos-arm64-linux": "1.1.1",
+    "com.unity.ugui": "2.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.screencapture": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0"
+  },
+  "testables": [
+    "ai.livliv.player",
+    "ai.livliv.mediapipe",
+    "ai.livliv.ugui"
+  ]
+}
